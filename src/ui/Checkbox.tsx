@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const StyledCheckbox = styled.div`
@@ -6,8 +7,8 @@ const StyledCheckbox = styled.div`
   transition: all 0.3s;
 
   & input[type="checkbox"] {
-    height: 2.4rem;
-    width: 2.4rem;
+    height: 1.8rem;
+    width: 1.8rem;
     outline-offset: 2px;
     transform-origin: 0;
     accent-color: var(--color-green-primary);
@@ -19,23 +20,21 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-type CheckBoxProps = {
-  checked: boolean;
-  onChange: () => void;
-  disabled?: boolean;
-  id: string;
-};
+// type CheckBoxProps = {
+//   checked: boolean;
+//   onChange?: () => void;
+//   disabled?: boolean;
+//   id?: string;
+// };
 
-function Checkbox({ checked, onChange, disabled = false, id }: CheckBoxProps) {
+function Checkbox() {
+  const [checked, setChecked] = useState(false);
+  function handleCheck() {
+    setChecked((prev) => !prev);
+  }
   return (
     <StyledCheckbox>
-      <input
-        type="checkbox"
-        id={id}
-        checked={checked}
-        onChange={onChange}
-        disabled={disabled}
-      />
+      <input type="checkbox" checked={checked} onChange={handleCheck} />
     </StyledCheckbox>
   );
 }
