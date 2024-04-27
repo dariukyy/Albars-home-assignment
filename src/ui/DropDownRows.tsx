@@ -1,9 +1,4 @@
-import { convertDateFormat } from "../utils/helpers";
-import Checkbox from "./Checkbox";
-import Paragraph from "./Paragraph";
-import Status from "./Status";
-import Table from "./Table";
-import { motion } from "framer-motion";
+import DropDownTableRow from "./DropDownTableRow";
 
 export type ObjectProps = {
   date: string;
@@ -21,30 +16,30 @@ function DropDownRows({
   statusTwo,
   statusThree,
 }: DropDownRowsProps) {
+  const id = Math.random().toString(36).substr(2) + Date.now().toString(36);
+  const id2 = Math.random().toString(36).substr(2) + Date.now().toString(36);
+  const id3 = Math.random().toString(36).substr(2) + Date.now().toString(36);
   return (
-    <motion.div>
-      <Table.Row>
-        <Checkbox />
-        <Paragraph>Psichikos sveikatos patikra</Paragraph>
-        <Paragraph>0000</Paragraph>
-        <Paragraph>{convertDateFormat(statusOne.date)}</Paragraph>
-        <Status code={statusOne} />
-      </Table.Row>
-      <Table.Row>
-        <Checkbox />
-        <Paragraph>Fizinės sveikatos patikra</Paragraph>
-        <Paragraph>0001</Paragraph>
-        <Paragraph>{convertDateFormat(statusTwo.date)}</Paragraph>
-        <Status code={statusTwo} />
-      </Table.Row>
-      <Table.Row>
-        <Checkbox />
-        <Paragraph>Darbo prie kompiuterio pažyma</Paragraph>
-        <Paragraph>0002</Paragraph>
-        <Paragraph>{convertDateFormat(statusThree.date)}</Paragraph>
-        <Status code={statusThree} />
-      </Table.Row>
-    </motion.div>
+    <div>
+      <DropDownTableRow
+        title="John Doe"
+        id={id}
+        status={statusOne}
+        code="0000"
+      />
+      <DropDownTableRow
+        title="John Doe"
+        id={id2}
+        status={statusTwo}
+        code="0001"
+      />
+      <DropDownTableRow
+        title="John Doe"
+        id={id3}
+        status={statusThree}
+        code="0002"
+      />
+    </div>
   );
 }
 
