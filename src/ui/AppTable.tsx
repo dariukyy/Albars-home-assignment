@@ -11,6 +11,7 @@ import FooterPaginationButtonsComponent from "./FooterPaginationButtonsComponent
 import { useSearchParams } from "react-router-dom";
 import { useSort } from "../hooks/useSort";
 import SortableHeader from "./SortableHeader";
+import Menus from "./Menus";
 
 function AppTable() {
   const { data, refreshLoading, refreshData, ShowPersonsPerPageValue } =
@@ -28,44 +29,46 @@ function AppTable() {
   const currentData = sortedData.slice(indexOfFirstPerson, indexOfLastPerosn);
 
   return (
-    <Table columns={GRID_COL_SIZES}>
-      <Table.Header>
-        <HeaderCheckBox />
-        <SortableHeader field="fullName" handleSort={handleSort}>
-          Full name / Health check
-        </SortableHeader>
-        <SortableHeader field="combinedStatus" handleSort={handleSort}>
-          Code
-        </SortableHeader>
-        <SortableHeader field="dateCount" handleSort={handleSort}>
-          Expiration
-        </SortableHeader>
-        <SortableHeader field="dateCount" handleSort={handleSort}>
-          Status
-        </SortableHeader>
-        <SortableHeader field="department" handleSort={handleSort}>
-          Department
-        </SortableHeader>
-        <SortableHeader field="status" handleSort={handleSort}>
-          User status
-        </SortableHeader>
-        <SortableHeader field="jobTitle" handleSort={handleSort}>
-          Job title
-        </SortableHeader>
-        <Icon onClick={refreshData} isLoading={refreshLoading}>
-          <IoReload />
-        </Icon>
-      </Table.Header>
-      <Table.Body
-        data={currentData}
-        render={(item) => <PersonRow key={item.id} person={item} />}
-      />
-      <Table.Footer>
-        <TotalPersons />
-        <PageCount />
-        <FooterPaginationButtonsComponent />
-      </Table.Footer>
-    </Table>
+    <Menus>
+      <Table columns={GRID_COL_SIZES}>
+        <Table.Header>
+          <HeaderCheckBox />
+          <SortableHeader field="fullName" handleSort={handleSort}>
+            Full name / Health check
+          </SortableHeader>
+          <SortableHeader field="combinedStatus" handleSort={handleSort}>
+            Code
+          </SortableHeader>
+          <SortableHeader field="dateCount" handleSort={handleSort}>
+            Expiration
+          </SortableHeader>
+          <SortableHeader field="dateCount" handleSort={handleSort}>
+            Status
+          </SortableHeader>
+          <SortableHeader field="department" handleSort={handleSort}>
+            Department
+          </SortableHeader>
+          <SortableHeader field="status" handleSort={handleSort}>
+            User status
+          </SortableHeader>
+          <SortableHeader field="jobTitle" handleSort={handleSort}>
+            Job title
+          </SortableHeader>
+          <Icon onClick={refreshData} isLoading={refreshLoading}>
+            <IoReload />
+          </Icon>
+        </Table.Header>
+        <Table.Body
+          data={currentData}
+          render={(item) => <PersonRow key={item.id} person={item} />}
+        />
+        <Table.Footer>
+          <TotalPersons />
+          <PageCount />
+          <FooterPaginationButtonsComponent />
+        </Table.Footer>
+      </Table>
+    </Menus>
   );
 }
 
