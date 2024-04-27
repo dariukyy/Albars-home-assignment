@@ -1,24 +1,40 @@
 import styled from "styled-components";
 import { isFutureDate } from "../utils/helpers";
+import { ObjectProps } from "./DropDownRows";
 
 type StatusProps = {
   status?: boolean;
-  date?: string;
+  code?: { date: string; status: string } | ObjectProps;
+  canceled?: boolean;
 };
 
 const StyledStatus = styled.div<StatusProps>`
   background-color: ${(props) =>
-    props.status ? "var(--color-green-primary)" : "var(--color-red-status)"};
-  padding: 6px 12px;
+    props.canceled
+      ? "#d1d5db"
+      : props.status
+      ? "var(--color-green-primary)"
+      : "var(--color-red-status)"};
+  padding: 2px 12px;
   width: fit-content;
   border-radius: 20px;
+  font-size: 1.2;
 `;
 
-function Status({ status, date }: StatusProps) {
-  if (date) {
+function Status({ status, code }: StatusProps) {
+  if (code) {
+    const { date, status: codeStatus } = code;
+    console.log(codeStatus);
+
     const isValid = isFutureDate(date);
-    const statusText = isValid ? "Valid" : "Expired";
-    return <StyledStatus status={isValid}>{statusText}</StyledStatus>;
+
+    if (codeStatus === "expired") {
+      return <StyledStatus status={isValid}>Expired</StyledStatus>;
+    } else if (codeStatus === "valid") {
+      return <StyledStatus status={isValid}>Valid</StyledStatus>;
+    } else if (codeStatus === "canceled") {
+      return <StyledStatus canceled>Canceled</StyledStatus>;
+    }
   }
 
   const statusText = status ? "Active" : "Inactive";

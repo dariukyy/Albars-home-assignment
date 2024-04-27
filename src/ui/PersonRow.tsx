@@ -46,20 +46,21 @@ function PersonRow({ person }: PersonRowProps) {
         <Status status={person.status} />
         <Paragraph>{person.jobTitle}</Paragraph>
         {/* Menus  */}
-
-        <Menus>
+        <Menus.Menu>
           <Menus.Toggle id={person.id.toString()} />
           <Menus.List id={person.id.toString()}>
-            <Menus.Button icon={<HiEye />}>See details</Menus.Button>
+            <Menus.Button icon={<HiEye />}>
+              <Paragraph>See details</Paragraph>
+            </Menus.Button>
 
             <Menus.Button
               icon={<HiTrash />}
               onClick={() => console.log("clicked")}
             >
-              Delete
+              <Paragraph>Delete</Paragraph>
             </Menus.Button>
           </Menus.List>
-        </Menus>
+        </Menus.Menu>
 
         {/* DropDown */}
       </Table.Row>
