@@ -5,10 +5,15 @@ import Status from "./Status";
 import Table from "./Table";
 import { motion } from "framer-motion";
 
+export type ObjectProps = {
+  date: string;
+  status: string;
+};
+
 type DropDownRowsProps = {
-  statusOne: string;
-  statusTwo: string;
-  statusThree: string;
+  statusOne: ObjectProps;
+  statusTwo: ObjectProps;
+  statusThree: ObjectProps;
 };
 
 function DropDownRows({
@@ -22,22 +27,22 @@ function DropDownRows({
         <Checkbox />
         <Paragraph>Psichikos sveikatos patikra</Paragraph>
         <Paragraph>0000</Paragraph>
-        <Paragraph>{convertDateFormat(statusOne)}</Paragraph>
-        <Status date={statusOne} />
+        <Paragraph>{convertDateFormat(statusOne.date)}</Paragraph>
+        <Status code={statusOne} />
       </Table.Row>
       <Table.Row>
         <Checkbox />
         <Paragraph>Fizinės sveikatos patikra</Paragraph>
         <Paragraph>0001</Paragraph>
-        <Paragraph>{convertDateFormat(statusTwo)}</Paragraph>
-        <Status date={statusTwo} />
+        <Paragraph>{convertDateFormat(statusTwo.date)}</Paragraph>
+        <Status code={statusTwo} />
       </Table.Row>
       <Table.Row>
         <Checkbox />
         <Paragraph>Darbo prie kompiuterio pažyma</Paragraph>
         <Paragraph>0002</Paragraph>
-        <Paragraph>{convertDateFormat(statusThree)}</Paragraph>
-        <Status date={statusThree} />
+        <Paragraph>{convertDateFormat(statusThree.date)}</Paragraph>
+        <Status code={statusThree} />
       </Table.Row>
     </motion.div>
   );
