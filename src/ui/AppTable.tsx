@@ -8,15 +8,28 @@ import HeaderCheckBox from "./HeaderCheckbox";
 import TotalPersons from "./TotalPersons";
 import PageCount from "./PageCount";
 import FooterPaginationButtonsComponent from "./FooterPaginationButtonsComponent";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useSort } from "../hooks/useSort";
 import SortableHeader from "./SortableHeader";
 import Menus from "./Menus";
+import { useEffect } from "react";
 
 function AppTable() {
+  // Context
   const { data, refreshLoading, refreshData, ShowPersonsPerPageValue } =
     useAppContext();
+  // React Router, search params
   const [searchParams] = useSearchParams();
+
+  //to redirect to the first page when the page is refreshed
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/" && location.search === "") {
+      navigate("/?show=25&page=1", { replace: true });
+    }
+  }, [navigate, location]);
 
   // Pagination
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));

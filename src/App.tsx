@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+import { BrowserRouter } from "react-router-dom";
+import { Suspense, lazy } from "react";
+
+import GlobalStyles from "./styles/GlobalStyles";
+import AppContextProvider from "./context/AppContext";
+import FullPageSpinner from "./ui/FullPageSpinner";
+
+const AppTable = lazy(() => import("./ui/AppTable"));
+
+const StyledApp = styled.div`
+  height: 100vh;
+`;
+
+const Main = styled.main`
+  background-color: #f9fafb;
+  padding: 4rem 4.8rem 6.4rem;
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <AppContextProvider>
+        <GlobalStyles />
+        <Suspense fallback={<FullPageSpinner />}>
+          <StyledApp>
+            <Main>
+              <AppTable />
+            </Main>
+          </StyledApp>
+        </Suspense>
+      </AppContextProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -125,7 +125,9 @@ function FooterPaginationButtonsComponent() {
         <p>Jump to:</p>
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
+            type="number"
+            min="1"
+            max={totalPages}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />

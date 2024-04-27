@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import DropDownTableRow from "./DropDownTableRow";
 
 export type ObjectProps = {
@@ -16,25 +17,35 @@ function DropDownRows({
   statusTwo,
   statusThree,
 }: DropDownRowsProps) {
-  const id = Math.random().toString(36).substr(2) + Date.now().toString(36);
-  const id2 = Math.random().toString(36).substr(2) + Date.now().toString(36);
-  const id3 = Math.random().toString(36).substr(2) + Date.now().toString(36);
+  const id = useMemo(
+    () => Math.random().toString(36) + Date.now().toString(36),
+    []
+  );
+  const id2 = useMemo(
+    () => Math.random().toString(36) + Date.now().toString(36),
+    []
+  );
+  const id3 = useMemo(
+    () => Math.random().toString(36) + Date.now().toString(36),
+    []
+  );
+
   return (
     <div>
       <DropDownTableRow
-        title="John Doe"
+        title="Psichinės sveikatos patikra"
         id={id}
         status={statusOne}
         code="0000"
       />
       <DropDownTableRow
-        title="John Doe"
+        title="Fizinės sveikatos patikra"
         id={id2}
         status={statusTwo}
         code="0001"
       />
       <DropDownTableRow
-        title="John Doe"
+        title="Darbo prie kompiuterio pažyma"
         id={id3}
         status={statusThree}
         code="0002"

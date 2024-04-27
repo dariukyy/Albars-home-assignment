@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
   --color-gray-status: #dedfe5
   --color-main-row:#f0faf5
   --color-gray-secondary: #fcfcfc
+  --color-gray-font: #6b7280;
   
 
 }
@@ -19,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
 
   /* Creating animations for dark mode */
-  transition: background-color 0.3s, border 0.3s;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
 }
 
 ::selection {
@@ -44,7 +45,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: var(--color-grey-700);
+  color: var(--color-gray-font);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
@@ -52,12 +53,12 @@ body {
   font-size: 1.6rem;
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: white;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
 
 button {
