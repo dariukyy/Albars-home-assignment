@@ -33,7 +33,6 @@ const StyledHeader = styled(CommonRow)`
     display: flex;
     justify-content: left;
     align-items: center;
-    cursor: pointer;
 
     &:first-child,
     &:last-child {
@@ -46,7 +45,8 @@ const StyledHeader = styled(CommonRow)`
       border-right: 2px solid #f3f4f6;
     }
 
-    & div {
+    &:not(:first-child) {
+      cursor: pointer;
     }
   }
 `;

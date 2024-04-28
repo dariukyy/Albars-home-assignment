@@ -9,7 +9,6 @@ type AppContextValue = {
   refreshLoading: boolean;
   checkedItemsCount: number;
   setCheckedItemsCount: (value: number) => void;
-  allChecked: boolean;
   memoizedDataLength: number;
   totalPages: number;
   ShowPersonsPerPageValue: number;
@@ -40,7 +39,6 @@ export default function AppContextProvider({
   // Memoize the data and its length
   const memoizedData = useMemo(() => data, []);
   const memoizedDataLength = useMemo(() => data.length, []);
-  const allChecked = checkedItemsCount === data.length;
 
   //!!!!!!!!!!!!!!
 
@@ -56,7 +54,6 @@ export default function AppContextProvider({
   // Function to refresh the data
   function refreshData() {
     setRefreshLoading(true);
-
     setTimeout(() => {
       setVersion((version) => version + 1);
       setRefreshLoading(false);
@@ -72,7 +69,6 @@ export default function AppContextProvider({
         refreshData,
         refreshLoading,
         checkedItemsCount,
-        allChecked,
         setCheckedItemsCount,
         memoizedDataLength,
         totalPages,
