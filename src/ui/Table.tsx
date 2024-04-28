@@ -141,6 +141,7 @@ type RowProps = {
   dropdownOpen?: boolean;
 };
 
+// Context to pass the columns to the Header and Row components
 const TableContext = createContext<ContextValueProps | null>(null);
 
 function Table({ columns, children }: TableProps) {
@@ -170,6 +171,7 @@ function Row({ children, dropdownOpen }: RowProps) {
   );
 }
 function Body({ data, render }: BodyProps) {
+  // If there is no data, show an empty message
   if (!data.length) return <Empty>No data to show at the moment</Empty>;
 
   return <StyledBody>{data.map(render)}</StyledBody>;
@@ -179,6 +181,7 @@ function Footer({ children }: ChildrenProps) {
   return <StyledFooter>{children}</StyledFooter>;
 }
 
+// Export the components
 Table.Header = Header;
 Table.Row = Row;
 Table.Body = Body;

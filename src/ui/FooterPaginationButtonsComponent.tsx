@@ -94,6 +94,7 @@ function FooterPaginationButtonsComponent() {
   const [inputValue, setInputValue] = useState("1");
   const { totalPages } = useAppContext();
 
+  // const show = searchParams.get("show");
   function handleClick(value: number) {
     setActiveButton(value);
     searchParams.set("show", value.toString());
@@ -102,8 +103,10 @@ function FooterPaginationButtonsComponent() {
     setSearchParams(searchParams);
   }
 
+  // const page = searchParams.get("page");
   const currentPage = searchParams.get("page");
 
+  // const totalPages = searchParams.get("totalPages");
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (

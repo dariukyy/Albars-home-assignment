@@ -24,10 +24,11 @@ const StyledStatus = styled.div<StatusProps>`
 function Status({ status, code }: StatusProps) {
   if (code) {
     const { date, status: codeStatus } = code;
-    console.log(codeStatus);
 
+    // Check if the date is in the future
     const isValid = isFutureDate(date);
 
+    // Check the status of the code
     if (codeStatus === "expired") {
       return <StyledStatus status={isValid}>Expired</StyledStatus>;
     } else if (codeStatus === "valid") {
@@ -37,6 +38,7 @@ function Status({ status, code }: StatusProps) {
     }
   }
 
+  // Check the status of the user
   const statusText = status ? "Active" : "Inactive";
   return <StyledStatus status={status}>{statusText}</StyledStatus>;
 }

@@ -110,14 +110,17 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
+// Create a context to store the state of the menus
 const MenusContext = createContext<MenusContextProps | null>(null);
 
 function Menus({ children }: MenusProps) {
   const [openId, setOpenId] = useState("");
   const [position, setPosition] = useState<Position | null>(null);
 
+  // Close the menu when the user clicks outside of it
   const close = () => setOpenId("");
 
+  // Open the menu with the given id
   const open = setOpenId;
 
   return (
@@ -138,6 +141,7 @@ function Menus({ children }: MenusProps) {
 function Toggle({ id }: ToggleProps) {
   const { open, openId, close, setPosition } = useContext(MenusContext)!;
 
+  // Close the menu when the user scrolls
   useEffect(() => {
     const handleScroll = () => {
       close();
@@ -150,6 +154,7 @@ function Toggle({ id }: ToggleProps) {
     };
   }, [close]);
 
+  // Handle the click event on the button
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.stopPropagation();
 
@@ -165,8 +170,11 @@ function Toggle({ id }: ToggleProps) {
       y: rect.y + rect.height + 8,
     });
 
+    // If the menu is already open, close it
     openId === "" || openId !== id ? open(id) : close();
   }
+
+  // Check if the menu is open
   const isClicked = openId === id;
   return (
     <ButtonIcon id={isClicked} onClick={handleClick}>
@@ -181,10 +189,13 @@ type ListProps = {
 
 function List({ id, children }: ListProps) {
   const { openId, position, close } = useContext(MenusContext)!;
+  // Close the menu when the user clicks outside of it
   const ref = useOutsideClick(close, false);
 
+  // Check if the menu is open and the position is set
   if (openId !== id || position === null) return null;
 
+  // Create a portal to render the menu
   return createPortal(
     <StyledList onClick={close} ref={ref} position={position}>
       {children}
@@ -194,8 +205,7 @@ function List({ id, children }: ListProps) {
 }
 
 function Button({ children, icon, onClick }: ButtonProps) {
-  // const { close } = useContext(MenusContext)!;
-
+  // Handle the click event on the button
   function handleClick() {
     onClick?.();
     alert("Do something");
@@ -208,6 +218,7 @@ function Button({ children, icon, onClick }: ButtonProps) {
   );
 }
 
+// Export the components
 Menus.Menu = Menu;
 Menus.Toggle = Toggle;
 Menus.List = List;

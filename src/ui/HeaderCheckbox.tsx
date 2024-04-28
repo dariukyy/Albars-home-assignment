@@ -41,12 +41,14 @@ function HeaderCheckBox() {
   const { allSelected, setAllChecked } = useAppContext();
   const checkboxRef = useRef<HTMLInputElement>(null);
 
+  // Set the indeterminate state of the checkbox
   useEffect(() => {
     if (checkboxRef.current) {
       checkboxRef.current.indeterminate = allSelected === false;
     }
   }, [allSelected]);
 
+  // Handle the checkbox change event
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     setAllChecked(target.checked);

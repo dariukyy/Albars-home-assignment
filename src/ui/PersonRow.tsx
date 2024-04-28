@@ -22,12 +22,14 @@ function PersonRow({ person }: PersonRowProps) {
 
   const { refreshLoading } = useAppContext();
 
+  // Handle the dropdown open event
   function handleOpen() {
     setDropdownOpen((prev) => !prev);
   }
 
   const { statusOne, statusTwo, statusThree } = person;
 
+  // Show a spinner while the data is being refreshed
   if (refreshLoading) return <FullPageSpinner />;
 
   return (
@@ -45,7 +47,8 @@ function PersonRow({ person }: PersonRowProps) {
         <Paragraph>{person.department}</Paragraph>
         <Status status={person.status} />
         <Paragraph>{person.jobTitle}</Paragraph>
-        {/* Menus  */}
+
+        {/* // Add Menus component */}
         <Menus.Menu>
           <Menus.Toggle id={person.id.toString()} />
           <Menus.List id={person.id.toString()}>

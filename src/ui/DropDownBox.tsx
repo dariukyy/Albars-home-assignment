@@ -39,7 +39,6 @@ export const ArrowIcon = styled.button`
 
 type DropwDownIconProps = {
   fullName: string;
-
   dropdownOpen: boolean;
   handleOpen: () => void;
 };

@@ -22,9 +22,9 @@ const StyledCheckbox = styled.div`
 `;
 
 function Checkbox() {
-  const { allSelected, setAllChecked } = useAppContext();
+  const { setAllChecked } = useAppContext();
   const [checked, setChecked] = useState(false);
-
+  //
   function handleClick() {
     setChecked((prev) => !prev);
     setAllChecked(true);

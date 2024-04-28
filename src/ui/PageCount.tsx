@@ -32,24 +32,29 @@ function PageCount() {
   const { totalPages } = useAppContext();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Set the page number in the URL
   function setUrl(pageName: string) {
     searchParams.set("page", pageName);
     setSearchParams(searchParams);
   }
 
+  // Get the current page number from the URL
   const currentPage = !searchParams.get("page")
     ? 1
     : Number(searchParams.get("page"));
 
+  // Handle the left arrow click event
   function handleClickLedt() {
     const prev = currentPage === 1 ? currentPage : currentPage - 1;
 
     setUrl(prev.toString());
   }
 
+  // Handle the right arrow click event
   function handleClickRight() {
     const next = currentPage === totalPages ? currentPage : currentPage + 1;
 
+    // Set the page number in the URL
     setUrl(next.toString());
   }
 

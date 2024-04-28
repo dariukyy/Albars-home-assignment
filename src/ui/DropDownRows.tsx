@@ -17,6 +17,7 @@ function DropDownRows({
   statusTwo,
   statusThree,
 }: DropDownRowsProps) {
+  // Generate unique id for each DropDownTableRow
   const id = useMemo(
     () => Math.random().toString(36) + Date.now().toString(36),
     []
