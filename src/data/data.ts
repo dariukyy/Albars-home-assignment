@@ -70,7 +70,7 @@ export const data: Persons = [
     status: true,
     statusOne: { date: "6/29/2023", status: "expired" },
     statusTwo: { date: "12/22/2025", status: "valid" },
-    statusThree: { date: "11/25/2023", status: "valid" },
+    statusThree: { date: "11/25/2029", status: "valid" },
   },
   // {
   //   id: 7,
