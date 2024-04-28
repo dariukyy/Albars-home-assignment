@@ -1,30 +1,24 @@
-# React + TypeScript + Vite
+# Albars Home Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a home assignment for Albars.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project uses the following technologies:
 
-## Expanding the ESLint configuration
+- [React](https://reactjs.org/) for building the user interface
+- [TypeScript](https://www.typescriptlang.org/) for adding static type definitions to JavaScript
+- [Vite](https://vitejs.dev/) for building the project and running the development server
+- [Framer Motion](https://www.framer.com/api/motion/) for animations
+- [React Router DOM](https://reactrouter.com/) for routing
+- [Styled Components](https://styled-components.com/) for styling components
+- [React Icons](https://react-icons.github.io/react-icons/) for using icons
+- [ESLint](https://eslint.org/) for linting the code
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+First, clone the repository:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/dariukyy/albars-home-assignment.git
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
