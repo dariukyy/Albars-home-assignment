@@ -1,7 +1,6 @@
-# Albars Home Assignment
+# ****** Home Assignment
 
-This project is a home assignment for Albars.
-
+This project is a home assignment for ******
 ## Tech Stack
 
 This project uses the following technologies:
