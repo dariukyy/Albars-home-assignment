@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useMemo, useState } from "react";
+import { ReactNode, createContext, useMemo, useState } from "react";
 import { Persons, data } from "../data/data";
 import { REFRESH_DATA_TIMEOUT } from "../utils/constants";
 import { useSearchParams } from "react-router-dom";
@@ -21,7 +21,7 @@ type AppContextProviderProps = {
   children: ReactNode;
 };
 
-const AppContext = createContext<AppContextValue | null>(null);
+export const AppContext = createContext<AppContextValue | null>(null);
 
 export default function AppContextProvider({
   children,
@@ -84,12 +84,4 @@ export default function AppContextProvider({
       {children}
     </AppContext.Provider>
   );
-}
-
-export function useAppContext() {
-  const context = useContext(AppContext)!;
-  if (context === undefined)
-    throw new Error("App context used outside of the timer context provider");
-
-  return context;
 }

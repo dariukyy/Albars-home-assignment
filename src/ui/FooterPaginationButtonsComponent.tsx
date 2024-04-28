@@ -4,7 +4,7 @@ import { MdOutlineSubdirectoryArrowLeft } from "react-icons/md";
 import { useState } from "react";
 import { SHOW_VALUES } from "../utils/constants";
 import { useSearchParams } from "react-router-dom";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../context/useAppContext";
 
 const StyledComponent = styled.div`
   width: 100%;

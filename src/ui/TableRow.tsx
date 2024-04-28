@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import { useAppContext } from "../context/AppContext";
 import { Person } from "../data/data";
 
 import Checkbox from "./Checkbox";
@@ -12,12 +11,13 @@ import Table from "./Table";
 import DropDownRows from "./DropDownRows";
 import Menus from "./Menus";
 import { HiEye, HiTrash } from "react-icons/hi";
+import { useAppContext } from "../context/useAppContext";
 
 type PersonRowProps = {
   person: Person;
 };
 
-function PersonRow({ person }: PersonRowProps) {
+function TableRow({ person }: PersonRowProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { refreshLoading } = useAppContext();
@@ -78,4 +78,4 @@ function PersonRow({ person }: PersonRowProps) {
   );
 }
 
-export default PersonRow;
+export default TableRow;

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Paragraph from "./Paragraph";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { ArrowIcon } from "./DropDownBox";
-import { useAppContext } from "../context/AppContext";
 import { useSearchParams } from "react-router-dom";
+import { useAppContext } from "../context/useAppContext";
 
 const StyledPageCount = styled.div`
   display: flex;

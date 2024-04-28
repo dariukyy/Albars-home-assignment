@@ -1,18 +1,20 @@
+import { useEffect } from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { IoReload } from "react-icons/io5";
+
 import { GRID_COL_SIZES } from "../utils/constants";
-import PersonRow from "./PersonRow";
+import { useSort } from "../hooks/useSort";
+import { useAppContext } from "../context/useAppContext";
+
+import TableRow from "./TableRow";
 import Table from "./Table";
 import Icon from "./RefreshIcon";
-import { useAppContext } from "../context/AppContext";
 import HeaderCheckBox from "./HeaderCheckbox";
 import TotalPersons from "./TotalPersons";
 import PageCount from "./PageCount";
 import FooterPaginationButtonsComponent from "./FooterPaginationButtonsComponent";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { useSort } from "../hooks/useSort";
 import SortableHeader from "./SortableHeader";
 import Menus from "./Menus";
-import { useEffect } from "react";
 
 function AppTable() {
   // Context
@@ -73,7 +75,7 @@ function AppTable() {
         </Table.Header>
         <Table.Body
           data={currentData}
-          render={(item) => <PersonRow key={item.id} person={item} />}
+          render={(item) => <TableRow key={item.id} person={item} />}
         />
         <Table.Footer>
           <TotalPersons />

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../context/useAppContext";
 
 const StyledCheckbox = styled.div`
   display: flex;
