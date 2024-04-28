@@ -1,17 +1,19 @@
 import { useEffect } from "react";
 import { useAppContext } from "../context/useAppContext";
 import styled from "styled-components";
+import { StyledCheckbox } from "./styled-components/StyledCheckBox";
 
 const StyledHeaderCheckBox = styled.div`
   display: flex;
   gap: 1.6rem;
   transition: all 0.3s;
 
-  & input[type="checkbox"] {
+  /* & input[type="checkbox"] {
     height: 1.8rem;
     width: 1.8rem;
     outline-offset: 2px;
     transform-origin: 0;
+    outline-offset: 2px;
     accent-color: var(--color-green-primary);
     cursor: pointer;
     position: relative;
@@ -34,25 +36,26 @@ const StyledHeaderCheckBox = styled.div`
 
   & input[type="checkbox"]:indeterminate::before {
     background-color: green; // Change this to the color you want
-  }
+  } */
 `;
 
-function HeaderCheckBox() {
-  const { checkedItemsCount, allChecked } = useAppContext();
+function IndeterminateCheckbox() {
+  const { checkedItemsCount, allChecked, setAllItemsChecked, allItemsChecked } =
+    useAppContext();
 
   useEffect(() => {}, [checkedItemsCount, allChecked]);
 
   return (
     <StyledHeaderCheckBox>
-      <input
-        type="checkbox"
+      <StyledCheckbox
         ref={(el) =>
           el && (el.indeterminate = checkedItemsCount > 0 && !allChecked)
         }
         checked={allChecked}
+        // onChange={(e) => setAllItemsChecked(e.target.checked)}
       />
     </StyledHeaderCheckBox>
   );
 }
 
-export default HeaderCheckBox;
+export default IndeterminateCheckbox;

@@ -9,7 +9,7 @@ import { useAppContext } from "../context/useAppContext";
 import TableRow from "./TableRow";
 import Table from "./Table";
 import Icon from "./RefreshIcon";
-import HeaderCheckBox from "./HeaderCheckbox";
+import IndeterminateCheckbox from "./IndeterminateCheckbox";
 import TotalPersons from "./TotalPersons";
 import PageCount from "./PageCount";
 import FooterPaginationButtonsComponent from "./FooterPaginationButtonsComponent";
@@ -47,7 +47,7 @@ function AppTable() {
     <Menus>
       <Table columns={GRID_COL_SIZES}>
         <Table.Header>
-          <HeaderCheckBox />
+          <IndeterminateCheckbox />
           <SortableHeader field="fullName" handleSort={handleSort}>
             Full name / Health check
           </SortableHeader>

@@ -80,6 +80,7 @@ const ShowBox = styled.li<{ active: boolean }>`
   font-weight: 500;
   color: ${(props) => (props.active ? "#000" : "#9ca3af")};
   cursor: ${(props) => (props.active ? "default" : "pointer")};
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover {
     background-color: ${(props) =>

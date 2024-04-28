@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import { Person } from "../data/data";
 
-import Checkbox from "./Checkbox";
 import DropDownBox from "./DropDownBox";
 import FullPageSpinner from "./FullPageSpinner";
 import Paragraph from "./Paragraph";
@@ -12,10 +11,20 @@ import DropDownRows from "./DropDownRows";
 import Menus from "./Menus";
 import { HiEye, HiTrash } from "react-icons/hi";
 import { useAppContext } from "../context/useAppContext";
+import RowCheckbox from "./RowCheckbox";
 
 type PersonRowProps = {
   person: Person;
 };
+function Empty() {
+  return (
+    <>
+      <Table.Empty />
+      <Table.Empty />
+      <Table.Empty />
+    </>
+  );
+}
 
 function TableRow({ person }: PersonRowProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,19 +44,16 @@ function TableRow({ person }: PersonRowProps) {
   return (
     <>
       <Table.Row dropdownOpen={dropdownOpen}>
-        <Checkbox />
+        <RowCheckbox />
         <DropDownBox
           dropdownOpen={dropdownOpen}
           handleOpen={handleOpen}
           fullName={person.fullName}
         />
-        <Table.Empty />
-        <Table.Empty />
-        <Table.Empty />
+        <Empty />
         <Paragraph>{person.department}</Paragraph>
         <Status status={person.status} />
         <Paragraph>{person.jobTitle}</Paragraph>
-
         {/* // Add Menus component */}
         <Menus.Menu>
           <Menus.Toggle id={person.id.toString()} />
@@ -64,7 +70,6 @@ function TableRow({ person }: PersonRowProps) {
             </Menus.Button>
           </Menus.List>
         </Menus.Menu>
-
         {/* DropDown */}
       </Table.Row>
       {dropdownOpen && (

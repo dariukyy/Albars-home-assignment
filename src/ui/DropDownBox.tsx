@@ -31,6 +31,7 @@ export const ArrowIcon = styled.button`
   height: 3rem;
   border-radius: 0.5rem;
   margin-left: -0.7rem;
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover {
     background-color: #d1d5db;

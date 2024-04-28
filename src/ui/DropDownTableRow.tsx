@@ -1,10 +1,10 @@
 import { FaBan, FaCheck, FaTimes } from "react-icons/fa";
 import { convertDateFormat } from "../utils/helpers";
-import Checkbox from "./Checkbox";
 import Menus from "./Menus";
 import Paragraph from "./Paragraph";
 import Status from "./Status";
 import Table from "./Table";
+import DropDownCheckbox from "./DropDownCheckbox";
 
 export type ObjectProps = {
   date: string;
@@ -19,10 +19,9 @@ type DropDownTableRowProps = {
 };
 
 function DropDownTableRow({ title, id, status, code }: DropDownTableRowProps) {
-  console.log(status.status);
   return (
     <Table.Row>
-      <Checkbox />
+      <DropDownCheckbox />
       <Paragraph>{title}</Paragraph>
       <Paragraph>{code}</Paragraph>
       <Paragraph>{convertDateFormat(status.date)}</Paragraph>

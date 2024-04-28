@@ -19,9 +19,9 @@ const GlobalStyles = createGlobalStyle`
   padding: 0;
   margin: 0;
 
-  /* Creating animations for dark mode */
-  transition: background-color 0.3s, border 0.3s, color 0.3s;
 }
+
+
 
 ::selection {
   background: var(--color-green-primary); 
@@ -52,6 +52,8 @@ body {
   line-height: 1.5;
   font-size: 1.6rem;
 }
+
+
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
