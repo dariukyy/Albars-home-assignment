@@ -30,6 +30,7 @@ function DropDownTableRow({ title, id, status, code }: DropDownTableRowProps) {
       <Table.Empty></Table.Empty>
       <Table.Empty></Table.Empty>
       {/* // Add Menus component */}
+
       <Menus.Menu>
         <Menus.Toggle id={id} />
         <Menus.List id={id}>

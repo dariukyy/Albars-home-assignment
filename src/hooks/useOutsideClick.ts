@@ -1,11 +1,11 @@
 import { useEffect, useRef, MutableRefObject } from "react";
 
-export function useOutsideClick(
+export function useOutsideClick<T extends HTMLElement = HTMLElement>(
   handler: () => void,
   listenCapturing: boolean = true
-): MutableRefObject<null | HTMLUListElement> {
+): MutableRefObject<T | null> {
   // Create a ref that stores the reference to the element
-  const ref = useRef<null | HTMLUListElement>(null);
+  const ref = useRef<T | null>(null);
 
   // Handle the outside click event
   useEffect(() => {
@@ -32,3 +32,5 @@ export function useOutsideClick(
 
   return ref;
 }
+
+// usage const ref = useOutsideClick<HTMLDivElement>(close);

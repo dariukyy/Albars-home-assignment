@@ -192,7 +192,7 @@ type ListProps = {
 function List({ id, children }: ListProps) {
   const { openId, position, close } = useContext(MenusContext)!;
   // Close the menu when the user clicks outside of it
-  const ref = useOutsideClick(close, false);
+  const ref = useOutsideClick<HTMLUListElement>(close, false);
 
   // Check if the menu is open and the position is set
   if (openId !== id || position === null) return null;
@@ -218,7 +218,6 @@ function Button({ children, icon, onClick }: ButtonProps) {
   // Handle the click event on the button
   function handleClick() {
     onClick?.();
-    alert("Do something");
   }
   return (
     <StyledButton onClick={handleClick}>

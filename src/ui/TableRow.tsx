@@ -13,6 +13,8 @@ import { HiEye, HiTrash } from "react-icons/hi";
 import { useAppContext } from "../context/useAppContext";
 import RowCheckbox from "./RowCheckbox";
 import { AnimatePresence, motion } from "framer-motion";
+import Modal from "./Modal-Better";
+import ConfirmDelete from "./ConfirmDelete";
 
 type PersonRowProps = {
   person: Person;
@@ -56,21 +58,31 @@ function TableRow({ person }: PersonRowProps) {
         <Status status={person.status} />
         <Paragraph>{person.jobTitle}</Paragraph>
         {/* // Add Menus component */}
-        <Menus.Menu>
-          <Menus.Toggle id={person.id.toString()} />
-          <Menus.List id={person.id.toString()}>
-            <Menus.Button icon={<HiEye />}>
-              <Paragraph>See details</Paragraph>
-            </Menus.Button>
+        <Modal>
+          <Menus.Menu>
+            <Menus.Toggle id={person.id.toString()} />
+            <Menus.List id={person.id.toString()}>
+              <Modal.Open opens="see-details">
+                <Menus.Button icon={<HiEye />}>
+                  <Paragraph>See details</Paragraph>
+                </Menus.Button>
+              </Modal.Open>
 
-            <Menus.Button
-              icon={<HiTrash />}
-              onClick={() => console.log("clicked")}
-            >
-              <Paragraph>Delete</Paragraph>
-            </Menus.Button>
-          </Menus.List>
-        </Menus.Menu>
+              <Modal.Open opens="delete">
+                <Menus.Button
+                  icon={<HiTrash />}
+                  onClick={() => console.log("clicked")}
+                >
+                  <Paragraph>Delete</Paragraph>
+                </Menus.Button>
+              </Modal.Open>
+            </Menus.List>
+
+            <Modal.Window name="delete">
+              <ConfirmDelete />
+            </Modal.Window>
+          </Menus.Menu>
+        </Modal>
         {/* DropDown */}
       </Table.Row>
 
