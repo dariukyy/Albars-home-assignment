@@ -32,7 +32,7 @@ function DropDownRows({
   );
 
   return (
-    <div>
+    <>
       <DropDownTableRow
         title="Psichinės sveikatos patikra"
         id={id}
@@ -51,7 +51,7 @@ function DropDownRows({
         status={statusThree}
         code="0002"
       />
-    </div>
+    </>
   );
 }
 

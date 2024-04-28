@@ -18,7 +18,7 @@ export const data: Persons = [
     department: "Research and Development",
     jobTitle: "Assistant Professor",
     status: true,
-    statusOne: { date: "10/3/2025", status: "canceled" },
+    statusOne: { date: "10/3/2025", status: "valid" },
     statusTwo: { date: "12/22/2025", status: "valid" },
     statusThree: { date: "2/11/2026", status: "valid" },
   },

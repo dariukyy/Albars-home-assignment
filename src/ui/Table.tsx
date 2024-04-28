@@ -45,7 +45,7 @@ const StyledHeader = styled(CommonRow)`
       border-right: 2px solid #f3f4f6;
     }
 
-    &:not(:first-child) {
+    &:not(:first-child):not(:last-child) {
       cursor: pointer;
     }
   }

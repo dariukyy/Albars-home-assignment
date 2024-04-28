@@ -1,4 +1,5 @@
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { motion } from "framer-motion";
+import { IoIosArrowUp } from "react-icons/io";
 import styled from "styled-components";
 
 const StyledDropDownBox = styled.div`
@@ -40,7 +41,7 @@ export const ArrowIcon = styled.button`
 
 type DropwDownIconProps = {
   fullName: string;
-  dropdownOpen: boolean;
+  dropdownOpen?: boolean;
   handleOpen: () => void;
 };
 
@@ -52,7 +53,13 @@ function DropDownBox({
   return (
     <StyledDropDownBox>
       <ArrowIcon onClick={handleOpen}>
-        {dropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+        <motion.div
+          initial={{ rotate: dropdownOpen ? 0 : 180 }}
+          animate={{ rotate: dropdownOpen ? 0 : 180 }}
+          transition={{ duration: 0.2 }}
+        >
+          <IoIosArrowUp />
+        </motion.div>
       </ArrowIcon>
       <div>{fullName}</div>
     </StyledDropDownBox>

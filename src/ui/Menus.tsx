@@ -9,6 +9,7 @@ import { createPortal } from "react-dom";
 import styled from "styled-components";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { useOutsideClick } from "../hooks/useOutsideClick";
+import { motion } from "framer-motion";
 
 const Menu = styled.div`
   display: flex;
@@ -43,7 +44,7 @@ const ButtonIcon = styled.button<{ id: boolean }>`
   }
 `;
 
-const StyledList = styled.ul<{ position: Position }>`
+const StyledList = styled(motion.ul)<{ position: Position }>`
   position: fixed;
   z-index: 999;
   background-color: #fff;
@@ -198,7 +199,15 @@ function List({ id, children }: ListProps) {
 
   // Create a portal to render the menu
   return createPortal(
-    <StyledList onClick={close} ref={ref} position={position}>
+    <StyledList
+      initial={{ scale: 0, opacity: 0, x: "50%", y: "-70%" }}
+      animate={{ scale: 1, opacity: 1, x: "0%", y: "0%" }}
+      exit={{ scale: 0, opacity: 0, x: "50%", y: "-70%" }}
+      transition={{ type: "tween", stiffness: 260, damping: 20 }}
+      onClick={close}
+      ref={ref}
+      position={position}
+    >
       {children}
     </StyledList>,
     document.body

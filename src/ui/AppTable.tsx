@@ -8,7 +8,7 @@ import { useAppContext } from "../context/useAppContext";
 
 import TableRow from "./TableRow";
 import Table from "./Table";
-import Icon from "./RefreshIcon";
+import RefreshIcon from "./RefreshIcon";
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
 import TotalPersons from "./TotalPersons";
 import PageCount from "./PageCount";
@@ -69,9 +69,9 @@ function AppTable() {
           <SortableHeader field="jobTitle" handleSort={handleSort}>
             Job title
           </SortableHeader>
-          <Icon onClick={refreshData} isLoading={refreshLoading}>
+          <RefreshIcon onClick={refreshData} isLoading={refreshLoading}>
             <IoReload />
-          </Icon>
+          </RefreshIcon>
         </Table.Header>
         <Table.Body
           data={currentData}

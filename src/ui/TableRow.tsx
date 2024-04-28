@@ -12,6 +12,7 @@ import Menus from "./Menus";
 import { HiEye, HiTrash } from "react-icons/hi";
 import { useAppContext } from "../context/useAppContext";
 import RowCheckbox from "./RowCheckbox";
+import { AnimatePresence, motion } from "framer-motion";
 
 type PersonRowProps = {
   person: Person;
@@ -72,13 +73,23 @@ function TableRow({ person }: PersonRowProps) {
         </Menus.Menu>
         {/* DropDown */}
       </Table.Row>
-      {dropdownOpen && (
-        <DropDownRows
-          statusOne={statusOne}
-          statusThree={statusThree}
-          statusTwo={statusTwo}
-        />
-      )}
+
+      <AnimatePresence initial={false}>
+        {dropdownOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+          >
+            <DropDownRows
+              statusOne={statusOne}
+              statusThree={statusThree}
+              statusTwo={statusTwo}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
