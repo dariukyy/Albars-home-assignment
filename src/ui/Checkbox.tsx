@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import { useState } from "react";
-import { useAppContext } from "../context/AppContext";
+
+import styled from "styled-components";
 
 const StyledCheckbox = styled.div`
   display: flex;
@@ -22,17 +22,15 @@ const StyledCheckbox = styled.div`
 `;
 
 function Checkbox() {
-  const { setAllChecked } = useAppContext();
   const [checked, setChecked] = useState(false);
-  //
-  function handleClick() {
+
+  const handleCheck = () => {
     setChecked((prev) => !prev);
-    setAllChecked(true);
-  }
+  };
 
   return (
     <StyledCheckbox>
-      <input type="checkbox" checked={checked} onChange={handleClick} />
+      <input type="checkbox" checked={checked} onChange={handleCheck} />
     </StyledCheckbox>
   );
 }

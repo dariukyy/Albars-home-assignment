@@ -1,6 +1,5 @@
-import styled from "styled-components";
 import { useAppContext } from "../context/AppContext";
-import { useEffect, useRef } from "react";
+import styled from "styled-components";
 
 const StyledHeaderCheckBox = styled.div`
   display: flex;
@@ -38,30 +37,16 @@ const StyledHeaderCheckBox = styled.div`
 `;
 
 function HeaderCheckBox() {
-  const { allSelected, setAllChecked } = useAppContext();
-  const checkboxRef = useRef<HTMLInputElement>(null);
-
-  // Set the indeterminate state of the checkbox
-  useEffect(() => {
-    if (checkboxRef.current) {
-      checkboxRef.current.indeterminate = allSelected === false;
-    }
-  }, [allSelected]);
-
-  // Handle the checkbox change event
-  const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement;
-    setAllChecked(target.checked);
-    console.log(target.checked);
-  };
+  const { checkedItemsCount, allChecked } = useAppContext();
 
   return (
     <StyledHeaderCheckBox>
       <input
         type="checkbox"
-        ref={checkboxRef}
-        checked={allSelected === true}
-        onChange={handleCheck}
+        ref={(el) =>
+          el && (el.indeterminate = checkedItemsCount > 0 && !allChecked)
+        }
+        checked={allChecked}
       />
     </StyledHeaderCheckBox>
   );

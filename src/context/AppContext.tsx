@@ -7,11 +7,14 @@ type AppContextValue = {
   data: Persons;
   refreshData: () => void;
   refreshLoading: boolean;
-  allSelected: boolean | null;
-  setAllChecked: (checked: boolean) => void;
+  checkedItemsCount: number;
+  setCheckedItemsCount: (value: number) => void;
+  allChecked: boolean;
   memoizedDataLength: number;
   totalPages: number;
   ShowPersonsPerPageValue: number;
+  setAllItemsChecked: (value: boolean) => void;
+  allItemsChecked: boolean;
 };
 
 type AppContextProviderProps = {
@@ -27,15 +30,21 @@ export default function AppContextProvider({
   const [, setVersion] = useState(0);
   // State to show a loading spinner when refreshing the data
   const [refreshLoading, setRefreshLoading] = useState(false);
-  // State to keep track of the checkbox state
-  const [allSelected, setAllSelected] = useState<boolean | null>(null);
 
-  // Get the search params from the URL
-  const [searchParams] = useSearchParams();
+  //!!!!!!!!!!!!!!
+  const [checkedItemsCount, setCheckedItemsCount] = useState(0);
+  const [allItemsChecked, setAllItemsChecked] = useState(false);
+  console.log(checkedItemsCount);
 
   // Memoize the data and its length
   const memoizedData = useMemo(() => data, []);
   const memoizedDataLength = useMemo(() => data.length, []);
+  const allChecked = checkedItemsCount === data.length;
+
+  //!!!!!!!!!!!!!!
+
+  // Get the search params from the URL
+  const [searchParams] = useSearchParams();
 
   // Get the number of persons to show per page
   const ShowPersonsPerPageValue = Number(searchParams.get("show"));
@@ -50,25 +59,25 @@ export default function AppContextProvider({
     setTimeout(() => {
       setVersion((version) => version + 1);
       setRefreshLoading(false);
-      setAllSelected(null);
     }, REFRESH_DATA_TIMEOUT);
   }
 
   // Function to set the checkbox state
-  function setAllChecked() {
-    setAllSelected((prev) => (prev === null ? false : true));
-  }
+
   return (
     <AppContext.Provider
       value={{
         data: memoizedData,
         refreshData,
         refreshLoading,
-        allSelected,
-        setAllChecked,
+        checkedItemsCount,
+        allChecked,
+        setCheckedItemsCount,
         memoizedDataLength,
         totalPages,
         ShowPersonsPerPageValue,
+        allItemsChecked,
+        setAllItemsChecked,
       }}
     >
       {children}
