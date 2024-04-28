@@ -32,9 +32,10 @@ export default function AppContextProvider({
   const [refreshLoading, setRefreshLoading] = useState(false);
 
   //!!!!!!!!!!!!!!
+  // State to keep track of the number of checked items
   const [checkedItemsCount, setCheckedItemsCount] = useState(0);
+  // State to keep track of the checkbox state
   const [allItemsChecked, setAllItemsChecked] = useState(false);
-  console.log(checkedItemsCount);
 
   // Memoize the data and its length
   const memoizedData = useMemo(() => data, []);

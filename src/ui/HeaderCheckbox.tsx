@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useAppContext } from "../context/AppContext";
 import styled from "styled-components";
 
@@ -38,6 +39,8 @@ const StyledHeaderCheckBox = styled.div`
 
 function HeaderCheckBox() {
   const { checkedItemsCount, allChecked } = useAppContext();
+
+  useEffect(() => {}, [checkedItemsCount, allChecked]);
 
   return (
     <StyledHeaderCheckBox>
