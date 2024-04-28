@@ -390,7 +390,7 @@ export const data: Persons = [
     jobTitle: "Computer Systems Analyst I",
     status: false,
     statusOne: { date: "10/01/2025", status: "valid" },
-    statusTwo: { date: "04/14/2023", status: "expired" },
+    statusTwo: { date: "04/14/2027", status: "valid" },
     statusThree: { date: "11/02/2021", status: "expired" },
   },
   {
@@ -800,7 +800,7 @@ export const data: Persons = [
     jobTitle: "Mechanical Systems Engineer",
     status: true,
     statusOne: { date: "10/01/2025", status: "valid" },
-    statusTwo: { date: "04/14/2023", status: "expired" },
+    statusTwo: { date: "04/14/2027", status: "valid" },
     statusThree: { date: "11/02/2021", status: "expired" },
   },
   {
@@ -961,7 +961,7 @@ export const data: Persons = [
     status: false,
     statusOne: { date: "10/01/2025", status: "valid" },
     statusTwo: { date: "04/14/2023", status: "expired" },
-    statusThree: { date: "11/02/2021", status: "expired" },
+    statusThree: { date: "11/02/2028", status: "valid" },
   },
   {
     id: 96,
@@ -980,8 +980,8 @@ export const data: Persons = [
     jobTitle: "Actuary",
     status: true,
     statusOne: { date: "10/01/2025", status: "valid" },
-    statusTwo: { date: "04/14/2023", status: "expired" },
-    statusThree: { date: "11/02/2021", status: "expired" },
+    statusTwo: { date: "04/14/2029", status: "vallid" },
+    statusThree: { date: "11/02/2026", status: "valid" },
   },
   {
     id: 98,
