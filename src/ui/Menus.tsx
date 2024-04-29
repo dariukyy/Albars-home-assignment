@@ -28,7 +28,7 @@ const ButtonIcon = styled.button<{ id: boolean }>`
   width: 3rem;
   height: 3rem;
   border-radius: 0.5rem;
-  margin-right: 1rem;
+  margin-right: 1.4rem;
   background-color: ${(props) => (props.id ? "#d1d5db" : "transparent")};
   transition: background-color 0.3s, color 0.3s;
 

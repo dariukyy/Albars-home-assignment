@@ -7,16 +7,16 @@ const StyledTable = styled.div`
 
   font-size: 1.4rem;
   background-color: #fff;
-  /* background-color: var(--color-grey-0); */
+  border: 3px solid #f3f4f6;
   border-radius: 7px;
 `;
 
 const CommonRow = styled.li<ContextValueProps>`
   display: grid;
   grid-template-columns: ${(props) => props.columns};
+  resize: horizontal;
   column-gap: 1rem;
   align-items: center;
-  transition: none;
 `;
 
 const StyledHeader = styled(CommonRow)`
@@ -26,6 +26,10 @@ const StyledHeader = styled(CommonRow)`
   height: 5rem;
   background-color: #fff;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  left: 0;
 
   & > * {
     height: 100%;
@@ -52,12 +56,10 @@ const StyledHeader = styled(CommonRow)`
 `;
 
 const StyledRow = styled(CommonRow)<{ dropdownOpen?: boolean }>`
-  /* padding: 1rem 0; */
   font-size: 1.2rem;
   text-align: left;
   height: 5rem;
   background-color: ${(props) => (props.dropdownOpen ? "#dcfce7" : "#fff")};
-  border-bottom: 2px solid #f3f4f6;
 
   &:hover {
     background-color: ${(props) =>
@@ -73,6 +75,13 @@ const StyledRow = styled(CommonRow)<{ dropdownOpen?: boolean }>`
     &:last-child {
       justify-content: center;
     }
+
+    &:not(:last-child) {
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 2px solid #f3f4f6;
   }
 `;
 
@@ -88,17 +97,22 @@ const StyledFooter = styled.footer`
   background-color: #fff;
   display: flex;
   justify-content: center;
-  border: 3px solid #f3f4f6;
-  margin-top: 1.3rem;
+  box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 -2px 4px -2px rgb(0 0 0 / 0.1);
   display: flex;
   justify-content: left;
   align-items: center;
   height: 5.6rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
 
   & > * {
     height: 100%;
-    border-right: 3px solid #f3f4f6;
     padding: 0 3rem;
+  }
+
+  &:not(:last-child) {
+    border-right: 3px solid #f3f4f6;
   }
 
   & > *:last-child {

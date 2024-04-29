@@ -430,8 +430,8 @@ export const data: Persons = [
     jobTitle: "Dental Hygienist",
     status: false,
     statusOne: { date: "10/01/2025", status: "valid" },
-    statusTwo: { date: "04/14/2023", status: "expired" },
-    statusThree: { date: "11/02/2021", status: "expired" },
+    statusTwo: { date: "04/14/2026", status: "valid" },
+    statusThree: { date: "11/02/2029", status: "valid" },
   },
   {
     id: 43,

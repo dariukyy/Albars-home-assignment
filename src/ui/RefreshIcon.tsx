@@ -15,6 +15,7 @@ const StyledIcon = styled.button<{ disabled: boolean }>`
   background-color: inherit;
   border-radius: 0.5rem;
   ${(props) => (props.disabled ? "cursor: not-allowed;" : "cursor: pointer;")}
+  margin-right: 1rem;
 
   &:hover {
     background-color: #f3f4f6;

@@ -5,9 +5,9 @@ import { Person } from "../data/data";
 export type SortingFunctionTypes =
   | "fullName"
   | "status"
-  | "statusOne"
-  | "statusTwo"
-  | "statusThree"
+  // | "statusOne"
+  // | "statusTwo"
+  // | "statusThree"
   | "dateCount"
   | "department"
   | "jobTitle"
@@ -59,6 +59,7 @@ export function useSort(
   }
 
   // Sort the data based on the sort field and direction
+
   const sortedData = [...data].sort((a, b) => {
     let aValue = getValue(a, sortField);
     let bValue = getValue(b, sortField);
@@ -72,26 +73,36 @@ export function useSort(
       ).length;
     }
 
+    let comparison = 0;
+
     if (sortField === "status") {
       if (sortDirection === "asc") {
-        return aValue === bValue ? 0 : aValue ? -1 : 1;
+        comparison = aValue === bValue ? 0 : aValue ? -1 : 1;
       } else {
-        return aValue === bValue ? 0 : aValue ? 1 : -1;
+        comparison = aValue === bValue ? 0 : aValue ? 1 : -1;
       }
     } else {
       if (typeof aValue === "string" && typeof bValue === "string") {
         if (sortDirection === "asc") {
-          return aValue.localeCompare(bValue);
+          comparison = aValue.localeCompare(bValue);
         } else {
-          return bValue.localeCompare(aValue);
+          comparison = bValue.localeCompare(aValue);
         }
       } else if (sortField === "dateCount") {
-        return sortDirection === "asc"
-          ? Number(aValue) - Number(bValue)
-          : Number(bValue) - Number(aValue);
+        comparison =
+          sortDirection === "asc"
+            ? Number(aValue) - Number(bValue)
+            : Number(bValue) - Number(aValue);
       }
-      return 0;
     }
+
+    // If the primary sort fields are equal, sort by full name
+    if (comparison === 0) {
+      // Always sort by full name in ascending order when the primary sort is in descending order
+      comparison = a.fullName.localeCompare(b.fullName);
+    }
+
+    return comparison;
   });
 
   return { sortedData, handleSort };

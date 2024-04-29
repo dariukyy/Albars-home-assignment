@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Paragraph from "./Paragraph";
+
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { ArrowIcon } from "./DropDownBox";
 import { useSearchParams } from "react-router-dom";
@@ -12,6 +12,8 @@ const StyledPageCount = styled.div`
   gap: 5rem;
   font-size: 1.5rem;
   width: 30%;
+  font-size: 1.5rem;
+  color: #4b5563;
 
   & div {
     display: flex;
@@ -60,9 +62,9 @@ function PageCount() {
 
   return (
     <StyledPageCount>
-      <Paragraph>
+      <p>
         Page {currentPage} / {totalPages}
-      </Paragraph>
+      </p>
       <div>
         <ArrowIcon disabled={currentPage === 1} onClick={handleClickLedt}>
           <GoArrowLeft />
