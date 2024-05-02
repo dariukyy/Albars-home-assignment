@@ -7,7 +7,7 @@ const StyledTable = styled.div`
 
   font-size: 1.4rem;
   background-color: #fff;
-  border: 3px solid #f3f4f6;
+  border: 2px solid #f3f4f6;
   border-radius: 7px;
 `;
 
@@ -109,10 +109,10 @@ const StyledFooter = styled.footer`
   & > * {
     height: 100%;
     padding: 0 3rem;
-  }
 
-  &:not(:last-child) {
-    border-right: 3px solid #f3f4f6;
+    &:not(:last-child) {
+      border-right: 2px solid #f3f4f6;
+    }
   }
 
   & > *:last-child {

@@ -31,8 +31,6 @@ function Empty() {
 
 function TableRow({ person }: PersonRowProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [checked, setChecked] = useState(false);
-  console.log(checked);
 
   const { refreshLoading } = useAppContext();
 
@@ -49,7 +47,7 @@ function TableRow({ person }: PersonRowProps) {
   return (
     <>
       <Table.Row dropdownOpen={dropdownOpen}>
-        <RowCheckbox setChecked={setChecked} />
+        <RowCheckbox />
         <DropDownBox
           dropdownOpen={dropdownOpen}
           handleOpen={handleOpen}
@@ -97,7 +95,6 @@ function TableRow({ person }: PersonRowProps) {
             transition={{ type: "spring", duration: 0.4, bounce: 0 }}
           >
             <DropDownRows
-              checked={checked}
               statusOne={statusOne}
               statusThree={statusThree}
               statusTwo={statusTwo}

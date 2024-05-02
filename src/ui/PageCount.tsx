@@ -9,7 +9,7 @@ const StyledPageCount = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5rem;
+  gap: 4.5rem;
   font-size: 1.5rem;
   width: 30%;
   font-size: 1.5rem;

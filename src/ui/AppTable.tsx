@@ -20,6 +20,7 @@ function AppTable() {
   // Context
   const { data, refreshLoading, refreshData, ShowPersonsPerPageValue } =
     useAppContext();
+
   // React Router, search params
   const [searchParams] = useSearchParams();
 
