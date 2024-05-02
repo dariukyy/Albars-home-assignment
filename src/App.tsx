@@ -16,7 +16,6 @@ const StyledApp = styled.div`
 const Main = styled.main`
   background-color: #f9fafb;
   padding: 4rem 4.8rem 6.4rem;
-  overflow-x: hidden;
 `;
 
 function App() {
