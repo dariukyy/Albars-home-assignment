@@ -20,6 +20,16 @@ const StyledConfirmDelete = styled.div`
     display: flex;
     justify-content: flex-end;
     gap: 1.2rem;
+
+    & button:last-child {
+      background-color: #b91c1c;
+      color: #fef2f2;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #991b1b;
+      }
+    }
   }
 
   & button {
@@ -30,16 +40,25 @@ const StyledConfirmDelete = styled.div`
     padding: 1.2rem 1.6rem;
     font-weight: 500;
     border-radius: 0.5rem;
+    transition: all 0.2s;
 
     &:hover {
-      background-color: #f9fafb;
+      background-color: #d1d5db;
     }
   }
 `;
+type ConfirmDeleteProps = {
+  onCloseModal: () => void;
+};
 
-function ConfirmDelete() {
+function ConfirmDelete({ onCloseModal }: ConfirmDeleteProps) {
   function handleDelete() {
     alert("Do something for a deletion");
+    onCloseModal();
+  }
+
+  function handleClose() {
+    onCloseModal();
   }
   return (
     <StyledConfirmDelete>
@@ -50,13 +69,8 @@ function ConfirmDelete() {
       </p>
 
       <div>
-        <button>Cancel</button>
-        <button
-          onClick={handleDelete}
-          style={{ backgroundColor: "#b91c1c", color: "#fee2e2" }}
-        >
-          Delete
-        </button>
+        <button onClick={handleClose}>Cancel</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </StyledConfirmDelete>
   );
