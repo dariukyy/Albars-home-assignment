@@ -60,6 +60,7 @@ const StyledRow = styled(CommonRow)<{ dropdownOpen?: boolean }>`
   text-align: left;
   height: 5rem;
   background-color: ${(props) => (props.dropdownOpen ? "#dcfce7" : "#fff")};
+  border-bottom: 2px solid #f3f4f6;
 
   &:hover {
     background-color: ${(props) =>
@@ -76,12 +77,8 @@ const StyledRow = styled(CommonRow)<{ dropdownOpen?: boolean }>`
       justify-content: center;
     }
 
-    &:not(:last-child) {
-    }
-  }
-
-  &:not(:last-child) {
-    border-bottom: 2px solid #f3f4f6;
+    /* &:not(:last-child) {
+    } */
   }
 `;
 

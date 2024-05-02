@@ -11,6 +11,21 @@ export type Person = {
 
 export type Persons = Person[];
 
+// export const headers: Headers = [
+//   { field: "fullName", label: "Full name / Health check" },
+//   { field: "combinedStatus", label: "Code" },
+//   { field: "dateCount", label: "Expiration" },
+//   { field: "dateCount", label: "Status" },
+//   { field: "department", label: "Department" },
+//   { field: "status", label: "User status" },
+//   { field: "jobTitle", label: "Job title" },
+// ];
+
+// type Headers = {
+//   field: string;
+//   label: string;
+// }[];
+
 export const data: Persons = [
   {
     id: 1,
