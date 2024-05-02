@@ -13,7 +13,7 @@ import { HiEye, HiTrash } from "react-icons/hi";
 import { useAppContext } from "../context/useAppContext";
 import RowCheckbox from "./RowCheckbox";
 import { AnimatePresence, motion } from "framer-motion";
-import Modal from "./Modal-Better";
+import Modal from "./Modal";
 import ConfirmDelete from "./ConfirmDelete";
 
 type PersonRowProps = {
@@ -31,6 +31,8 @@ function Empty() {
 
 function TableRow({ person }: PersonRowProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
+  console.log(checked);
 
   const { refreshLoading } = useAppContext();
 
@@ -47,7 +49,7 @@ function TableRow({ person }: PersonRowProps) {
   return (
     <>
       <Table.Row dropdownOpen={dropdownOpen}>
-        <RowCheckbox />
+        <RowCheckbox setChecked={setChecked} />
         <DropDownBox
           dropdownOpen={dropdownOpen}
           handleOpen={handleOpen}
@@ -79,7 +81,7 @@ function TableRow({ person }: PersonRowProps) {
             </Menus.List>
 
             <Modal.Window name="delete">
-              <ConfirmDelete />
+              <ConfirmDelete onCloseModal={close} />
             </Modal.Window>
           </Menus.Menu>
         </Modal>
@@ -95,6 +97,7 @@ function TableRow({ person }: PersonRowProps) {
             transition={{ type: "spring", duration: 0.4, bounce: 0 }}
           >
             <DropDownRows
+              checked={checked}
               statusOne={statusOne}
               statusThree={statusThree}
               statusTwo={statusTwo}
