@@ -31,7 +31,7 @@ function Empty() {
 
 function TableRow({ person }: PersonRowProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const [rowCheckboxChecked, setRowCheckboxChecked] = useState(false);
   const { refreshLoading } = useAppContext();
 
   // Handle the dropdown open event
@@ -47,7 +47,7 @@ function TableRow({ person }: PersonRowProps) {
   return (
     <>
       <Table.Row dropdownOpen={dropdownOpen}>
-        <RowCheckbox />
+        <RowCheckbox setRowCheckboxChecked={setRowCheckboxChecked} />
         <DropDownBox
           dropdownOpen={dropdownOpen}
           handleOpen={handleOpen}

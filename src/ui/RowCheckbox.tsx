@@ -8,10 +8,16 @@ const StyledRowCheckbox = styled.div`
   transition: all 0.3s;
 `;
 
-function RowCheckbox() {
+type RowCheckboxProps = {
+  setRowCheckboxChecked: (isChecked: boolean) => void;
+};
+
+function RowCheckbox({ setRowCheckboxChecked }: RowCheckboxProps) {
   const { checkedItemsCount, setCheckedItemsCount } = useAppContext();
 
   const handleCheck = (isChecked: boolean) => {
+    setRowCheckboxChecked(isChecked);
+
     const newCount = isChecked ? checkedItemsCount + 1 : checkedItemsCount - 1;
     setCheckedItemsCount(newCount);
   };
