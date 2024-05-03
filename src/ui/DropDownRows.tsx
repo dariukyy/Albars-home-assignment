@@ -10,12 +10,14 @@ type DropDownRowsProps = {
   statusOne: ObjectProps;
   statusTwo: ObjectProps;
   statusThree: ObjectProps;
+  rowCheckboxChecked: boolean;
 };
 
 function DropDownRows({
   statusOne,
   statusTwo,
   statusThree,
+  rowCheckboxChecked,
 }: DropDownRowsProps) {
   // Generate unique id for each DropDownTableRow
   const id = useMemo(
@@ -34,18 +36,22 @@ function DropDownRows({
   return (
     <>
       <DropDownTableRow
+        rowCheckboxChecked={rowCheckboxChecked}
         title="Psichinės sveikatos patikra"
         id={id}
         status={statusOne}
         code="0000"
       />
+
       <DropDownTableRow
+        rowCheckboxChecked={rowCheckboxChecked}
         title="Fizinės sveikatos patikra"
         id={id2}
         status={statusTwo}
         code="0001"
       />
       <DropDownTableRow
+        rowCheckboxChecked={rowCheckboxChecked}
         title="Darbo prie kompiuterio pažyma"
         id={id3}
         status={statusThree}

@@ -16,10 +16,11 @@ function RowCheckbox({ setRowCheckboxChecked }: RowCheckboxProps) {
   const { checkedItemsCount, setCheckedItemsCount } = useAppContext();
 
   const handleCheck = (isChecked: boolean) => {
-    setRowCheckboxChecked(isChecked);
+    // setRowCheckboxChecked(isChecked);
 
     const newCount = isChecked ? checkedItemsCount + 1 : checkedItemsCount - 1;
     setCheckedItemsCount(newCount);
+    setRowCheckboxChecked(isChecked);
   };
   return (
     <StyledRowCheckbox>

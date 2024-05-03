@@ -16,12 +16,19 @@ type DropDownTableRowProps = {
   id: string;
   status: ObjectProps;
   code: string;
+  rowCheckboxChecked: boolean;
 };
 
-function DropDownTableRow({ title, id, status, code }: DropDownTableRowProps) {
+function DropDownTableRow({
+  title,
+  id,
+  status,
+  code,
+  rowCheckboxChecked,
+}: DropDownTableRowProps) {
   return (
     <Table.Row>
-      <DropDownCheckbox />
+      <DropDownCheckbox rowCheckboxChecked={rowCheckboxChecked} />
       <Paragraph>{title}</Paragraph>
       <Paragraph>{code}</Paragraph>
       <Paragraph>{convertDateFormat(status.date)}</Paragraph>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyledCheckbox } from "./styled-components/StyledCheckBox";
 
 const StyledDropDownCheckbox = styled.div`
@@ -8,15 +8,26 @@ const StyledDropDownCheckbox = styled.div`
   transition: all 0.3s;
 `;
 
-function DropDownCheckbox() {
-  const [checked, setChecked] = useState(false);
+function DropDownCheckbox({
+  rowCheckboxChecked,
+}: {
+  rowCheckboxChecked: boolean;
+}) {
+  const [checked, setChecked] = useState(rowCheckboxChecked);
 
-  const handleCheck = () => {
-    setChecked((prev) => !prev);
+  useEffect(() => {
+    setChecked(rowCheckboxChecked);
+  }, [rowCheckboxChecked]);
+
+  const handleCheck = (isChecked: boolean) => {
+    setChecked(isChecked);
   };
   return (
     <StyledDropDownCheckbox>
-      <StyledCheckbox checked={checked} onChange={handleCheck} />
+      <StyledCheckbox
+        checked={checked}
+        onChange={(e) => handleCheck(e.target.checked)}
+      />
     </StyledDropDownCheckbox>
   );
 }

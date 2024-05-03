@@ -33,6 +33,7 @@ function TableRow({ person }: PersonRowProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [rowCheckboxChecked, setRowCheckboxChecked] = useState(false);
   const { refreshLoading } = useAppContext();
+  console.log(rowCheckboxChecked);
 
   // Handle the dropdown open event
   function handleOpen() {
@@ -85,7 +86,6 @@ function TableRow({ person }: PersonRowProps) {
         </Modal>
         {/* DropDown */}
       </Table.Row>
-
       <AnimatePresence initial={false}>
         {dropdownOpen && (
           <motion.div
@@ -95,6 +95,7 @@ function TableRow({ person }: PersonRowProps) {
             transition={{ type: "spring", duration: 0.4, bounce: 0 }}
           >
             <DropDownRows
+              rowCheckboxChecked={rowCheckboxChecked}
               statusOne={statusOne}
               statusThree={statusThree}
               statusTwo={statusTwo}
