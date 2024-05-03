@@ -6,7 +6,7 @@ import {
 } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { REFRESH_DATA_TIMEOUT } from "../utils/constants";
+import { REFRESH_DATA_TIMEOUT } from "../../utils/constants";
 
 const StyledIcon = styled.button<{ disabled: boolean }>`
   width: 4rem;

@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-import { Person } from "../data/data";
+import { Person } from "../../data/data";
 
-import DropDownBox from "./DropDownBox";
-import FullPageSpinner from "./FullPageSpinner";
-import Paragraph from "./Paragraph";
-import Status from "./Status";
-import Table from "./Table";
-import DropDownRows from "./DropDownRows";
-import Menus from "./Menus";
+import DropDownBox from "../dropdown/DropDownBox";
+import FullPageSpinner from "../../ui/FullPageSpinner";
+import Paragraph from "../../ui/Paragraph";
+import Status from "../footer/Status";
+import Table from "../../ui/Table";
+import DropDownRows from "../dropdown/DropDownRows";
+import Menus from "../../ui/Menus";
 import { HiEye, HiTrash } from "react-icons/hi";
-import { useAppContext } from "../context/useAppContext";
-import RowCheckbox from "./RowCheckbox";
+import { useAppContext } from "../../context/useAppContext";
+import RowCheckbox from "../../ui/RowCheckbox";
 import { AnimatePresence, motion } from "framer-motion";
-import Modal from "./Modal";
-import ConfirmDelete from "./ConfirmDelete";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 type PersonRowProps = {
   person: Person;

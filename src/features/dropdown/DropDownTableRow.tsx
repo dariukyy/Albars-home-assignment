@@ -1,9 +1,9 @@
 import { FaBan, FaCheck, FaTimes } from "react-icons/fa";
-import { convertDateFormat } from "../utils/helpers";
-import Menus from "./Menus";
-import Paragraph from "./Paragraph";
-import Status from "./Status";
-import Table from "./Table";
+import { convertDateFormat } from "../../utils/helpers";
+import Menus from "../../ui/Menus";
+import Paragraph from "../../ui/Paragraph";
+import Status from "../footer/Status";
+import Table from "../../ui/Table";
 import DropDownCheckbox from "./DropDownCheckbox";
 
 export type ObjectProps = {

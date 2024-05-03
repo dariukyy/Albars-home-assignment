@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { ArrowIcon } from "./DropDownBox";
+import { ArrowIcon } from "../dropdown/DropDownBox";
 import { MdOutlineSubdirectoryArrowLeft } from "react-icons/md";
 import { useState } from "react";
-import { SHOW_VALUES } from "../utils/constants";
+import { SHOW_VALUES } from "../../utils/constants";
 import { useSearchParams } from "react-router-dom";
-import { useAppContext } from "../context/useAppContext";
+import { useAppContext } from "../../context/useAppContext";
 
 const StyledComponent = styled.div`
   width: 100%;

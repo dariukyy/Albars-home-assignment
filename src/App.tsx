@@ -7,7 +7,7 @@ import AppContextProvider from "./context/AppContext";
 import FullPageSpinner from "./ui/FullPageSpinner";
 
 // Lazy-loaded components
-const AppTable = lazy(() => import("./ui/AppTable"));
+const AppTable = lazy(() => import("./features/table/AppTable"));
 
 const StyledApp = styled.div`
   height: 100vh;

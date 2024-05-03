@@ -2,19 +2,19 @@ import { useEffect } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { IoReload } from "react-icons/io5";
 
-import { GRID_COL_SIZES } from "../utils/constants";
-import { useSort } from "../hooks/useSort";
-import { useAppContext } from "../context/useAppContext";
+import { GRID_COL_SIZES } from "../../utils/constants";
+import { useSort } from "../../hooks/useSort";
+import { useAppContext } from "../../context/useAppContext";
 
 import TableRow from "./TableRow";
-import Table from "./Table";
+import Table from "../../ui/Table";
 import RefreshIcon from "./RefreshIcon";
-import IndeterminateCheckbox from "./IndeterminateCheckbox";
-import TotalPersons from "./TotalPersons";
-import PageCount from "./PageCount";
-import FooterPaginationButtonsComponent from "./FooterPaginationButtonsComponent";
-import SortableHeader from "./SortableHeader";
-import Menus from "./Menus";
+import IndeterminateCheckbox from "../../ui/IndeterminateCheckbox";
+import TotalPersons from "../footer/TotalPersons";
+import PageCount from "../footer/PageCount";
+import FooterPaginationButtonsComponent from "../footer/FooterPaginationButtonsComponent";
+import SortableHeader from "../../ui/SortableHeader";
+import Menus from "../../ui/Menus";
 
 function AppTable() {
   // Context

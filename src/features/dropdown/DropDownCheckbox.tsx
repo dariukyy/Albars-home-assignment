@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { StyledCheckbox } from "./styled-components/StyledCheckBox";
+import { StyledCheckbox } from "../../ui/styled-components/StyledCheckBox";
 
 const StyledDropDownCheckbox = styled.div`
   display: flex;

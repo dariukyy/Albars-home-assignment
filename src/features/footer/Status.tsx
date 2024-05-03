@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { isFutureDate } from "../utils/helpers";
-import { ObjectProps } from "./DropDownRows";
+import { isFutureDate } from "../../utils/helpers";
+import { ObjectProps } from "../dropdown/DropDownRows";
 
 type StatusProps = {
   status?: boolean;
