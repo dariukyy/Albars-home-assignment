@@ -29,22 +29,15 @@ export default function AppContextProvider({
   const [, setVersion] = useState(0);
   // State to show a loading spinner when refreshing the data
   const [refreshLoading, setRefreshLoading] = useState(false);
-
-  //!!!!!!!!!!!!!!
   // State to keep track of the number of checked items
   const [checkedItemsCount, setCheckedItemsCount] = useState(0);
   // State to keep track of the checkbox state
   const [allItemsChecked, setAllItemsChecked] = useState(false);
 
+  const [searchParams] = useSearchParams();
   // Memoize the data and its length
   const memoizedData = useMemo(() => data, []);
   const memoizedDataLength = useMemo(() => data.length, []);
-
-  //!!!!!!!!!!!!!!
-
-  // Get the search params from the URL
-  const [searchParams] = useSearchParams();
-
   // Get the number of persons to show per page
   const ShowPersonsPerPageValue = Number(searchParams.get("show"));
   // Calculate the total number of pages
@@ -59,8 +52,6 @@ export default function AppContextProvider({
       setRefreshLoading(false);
     }, REFRESH_DATA_TIMEOUT);
   }
-
-  // Function to set the checkbox state
 
   return (
     <AppContext.Provider
